@@ -2,6 +2,7 @@ package cafe.nekohouse.nekoapi.plugins
 
 import cafe.nekohouse.nekoapi.PoemSize
 import cafe.nekohouse.nekoapi.getPoem
+
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
@@ -9,6 +10,7 @@ import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.request.*
 import io.ktor.server.response.*
 import io.ktor.server.routing.*
+
 import java.util.*
 
 fun Application.configureAiPoem() {
@@ -17,7 +19,6 @@ fun Application.configureAiPoem() {
     }
     routing {
         post("/aipoem") {
-
             val poem = getPoem(call.receiveText())
             call.respond(
                 mapOf(
